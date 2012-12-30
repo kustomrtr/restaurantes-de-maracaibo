@@ -51,29 +51,15 @@
 		<script src="phonegap.js"></script>
 		<script src="http://www.google.com/jsapi?key=AIzaSyA5m1Nc8ws2BbmPRwKu5gFradvD_hgq6G0" type="text/javascript"></script>
 		<script type="text/javascript" charset="utf-8">
-			// Call onDeviceReady when Cordova is loaded.
-			//
-			// At this point, the document has loaded but cordova-2.2.0.js has not.
-			// When Cordova is loaded and talking with the native device,
-			// it will call the event `deviceready`.
-			//
-			function onLoad() {
-				document.addEventListener("deviceready", onDeviceReady, false);
-			}
+			/*
+			 *  How to load a feed via the Feeds API.
+			 */
 
-			// Cordova is loaded and it is now safe to make calls Cordova methods
-			//
-			function onDeviceReady() {
-				// Now safe to use the Cordova API
-				/*
-				 *  How to load a feed via the Feeds API.
-				 */
+			google.load("feeds", "1");
 
-				google.load("feeds", "1");
-
-				// Our callback function, for when a feed is loaded.
-				function feedLoaded(result) {
-					if (!result.error) {
+			// Our callback function, for when a feed is loaded.
+			function feedLoaded(result) {
+				if (!result.error) {
 						// Grab the container we will put the results into
 						var container = document.getElementById("blog-list");
 						container.innerHTML = '';
@@ -92,28 +78,27 @@
 							output += "</li>";
 							container.innerHTML += output;
 						}
-					}
 				}
-
-				function OnLoad() {
-					// Create a feed instance that will grab Digg's feed.
-					var feed = new google.feeds.Feed("http://feed43.com/0208728426334538.xml");
-
-					// Calling load sends the request off.  It requires a callback function.
-					feed.setNumEntries(10)
-					feed.load(feedLoaded);
-
-				}
-
-
-				google.setOnLoadCallback(OnLoad);
 			}
+
+			function OnLoad() {
+				// Create a feed instance that will grab Digg's feed.
+				var feed = new google.feeds.Feed("http://feed43.com/0208728426334538.xml");
+
+				// Calling load sends the request off.  It requires a callback function.
+				feed.setNumEntries(10)
+				feed.load(feedLoaded);
+
+			}
+
+
+			google.setOnLoadCallback(OnLoad);
 
 		</script>
 
 	</head>
 
-	<body onload="onLoad()">
+	<body>
 		<!-- Wrapper -->
 		<section id="wrapper">
 
