@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8"><!--[if IE]><![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Restaurantes de Maracaibo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    
+    
+    
+    <!-- Web App Data -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" name="viewport">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    
+    
+    
+    <!-- iPhone ICON -->
+    <link href="http://jansimecek.com/error_page/404.html" sizes="57x57" rel="apple-touch-icon">
+    <!-- iPad ICON-->
+    <link href="http://jansimecek.com/error_page/404.html" sizes="72x72" rel="apple-touch-icon">
+    <!-- iPhone (Retina) ICON-->
+    <link href="http://jansimecek.com/error_page/404.html" sizes="114x114" rel="apple-touch-icon">
+	<!-- iPad (Retina) ICON-->
+	<link href="http://jansimecek.com/error_page/404.html" sizes="144x144" rel="apple-touch-icon">
+
+
+
+	<!-- iPhone SPLASHSCREEN-->
+	<link href="http://jansimecek.com/error_page/404.html" media="(device-width: 320px)" rel="apple-touch-startup-image">
+	<!-- iPhone (Retina) SPLASHSCREEN-->
+	<link href="http://jansimecek.com/error_page/404.html" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<!-- iPad (portrait) SPLASHSCREEN-->
+	<link href="http://jansimecek.com/error_page/404.html" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
+	<!-- iPad (landscape) SPLASHSCREEN-->
+	<link href="http://jansimecek.com/error_page/404.html" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
+	<!-- iPad (Retina, portrait) SPLASHSCREEN-->
+	<link href="http://jansimecek.com/error_page/404.html" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<!-- iPad (Retina, landscape) SPLASHSCREEN-->
+	<link href="http://jansimecek.com/error_page/404.html" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    
+    
+    <!--        Import Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <!--       =Import Fonts -->
+    
+    
+    
+    <!--     Fixes    -->
+    <!--[if lt IE 9]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!--    =Fixes    -->
+    
+    
+    <!--        Import Styles-->
+    <link rel="stylesheet" href="css/style.css" title="Main CSS" type="text/css" media="screen">
+    <!--        =Import Styles-->
+    <script src="phonegap.js"></script>
+    <script src="http://www.google.com/jsapi?key=AIzaSyA5m1Nc8ws2BbmPRwKu5gFradvD_hgq6G0" type="text/javascript"></script>
+    <script type="text/javascript">
+    /*
+    *  How to load a feed via the Feeds API.
+    */
+    
+    google.load("feeds", "1");
+    
+    // Our callback function, for when a feed is loaded.
+    function feedLoaded(result) {
+      if (!result.error) {
+        // Grab the container we will put the results into
+        var container = document.getElementById("blog-list");
+        container.innerHTML = '';
+    
+        // Loop through the feeds, putting the titles onto the page.
+        // Check out the result object for a list of properties returned in each entry.
+        // http://code.google.com/apis/ajaxfeeds/documentation/reference.html#JSON
+        for (var i = 0; i < result.feed.entries.length; i++) {
+          var entry = result.feed.entries[i];
+          var titulo = entry.title;
+          var link = entry.link;
+          var content = entry.content;
+          content = content.replace('<p><sub><i>-- Delivered by <a href="http://feed43.com/">Feed43</a> service</i></sub></p>','');
+          var output = "<li>";
+          output += '<div class="blog-post-wrapper clearfix"><a href="' + link + '"><h2>' + titulo + '</h2></a><p>' + content + '</p><hr /></div>';          
+          output += "</li>";
+          container.innerHTML += output;
+        }
+      }
+    }
+    
+    function OnLoad() {
+      // Create a feed instance that will grab Digg's feed.
+      var feed = new google.feeds.Feed("http://feed43.com/0208728426334538.xml");
+    
+      // Calling load sends the request off.  It requires a callback function.
+      feed.setNumEntries(10)
+      feed.load(feedLoaded);
+      
+    }
+    
+    google.setOnLoadCallback(OnLoad);
+    </script>
+    
+    
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <section id="wrapper">
+    
+        <!--    Header   -->
+        <header id="header">
+        	<!-- Headline -->
+        	<h1 id="logo">Restaurantes de Maracaibo</h1>
+        </header>
+        <!--      =Header    -->
+        
+        
+        
+        
+        
+        <!--      Main Content-->
+        <section id="content">
+	        <div id="blog">
+		        <ul id="blog-list">  
+			        <li style="padding: 20px; text-align: center; font-size: 24px;">Cargando...
+			        	<!--<div class="blog-post-wrapper">
+			        	<figure class="photoSwipe">
+			        		<a href="images/preview-images/02.jpg">
+					        	<img src="images/preview-images/02.jpg" alt="Captain America" />		        	
+			        		</a>
+			        	</figure>
+			        		
+			        		<!-- Blog Headline 
+			        		<a href="blog-single.html"><h2>Standart Blog Post</h2></a>
+			        				        		
+			        		<p>
+				        		Nullam diam dolor, molestie ac dictum ut, ultrices vitae leo. Proin ac neque orci, et molestie mauris. Aenean cursus risus sem, id condimentum urna. Donec euismod tempus quam, et facilisis nisl ullamcorper at. Maecenas et mauris dui, sit amet condimentum urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec gravida laoreet turpis, vitae tincidunt risus malesuada non.
+			        		</p>
+			        		
+			        		<hr />
+		        		</div>-->
+		        	</li> 
+	        	</ul>
+	        	        
+	        </div>
+        </section>
+        <!--    =Main Content-->
+        
+        
+        
+        
+        <!--   Footer Section-->
+        <footer id="footer">
+        	<!-- Footer section for widgets -->
+	        <div id="footer-main">
+		    					
+		    	<div class="footer-widget footer-widget-last">
+			    	<h4>Social Feed</h4>
+			    	<ul class="footer-widget-socialfeed">
+			    		<li><a href="#"><img src="images/social/twitter.png" alt="Twitter" /></a></li>
+			    		<li><a href="#"><img src="images/social/rss.png" alt="Twitter" /></a></li>
+			    		<li><a href="#"><img src="images/social/fb.png" alt="Twitter" /></a></li>
+			    		<li><a href="#"><img src="images/social/dribbble.png" alt="Twitter" /></a></li>
+			    		<li><a href="#"><img src="images/social/youtube.png" alt="Twitter" /></a></li>
+			    	</ul>
+				</div>		
+	        </div>
+	        
+        </footer>
+        <!--    =Footer Section-->
+        
+    </section>
+    <!-- =Wrapper -->
+    
+    
+    <!--        Import Scripts-->
+	<!-- !Javascript - at the bottom for fast page loading -->
+	<script src="js/klass.js"></script>
+    <script type="text/javascript" src="../../../ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script>!window.jQuery && document.write('<script src="js/jquery.min.js"><\/script>')</script>
+	<script src="js/plugins.js"></script>
+	<script src="js/script.js"></script>
+    <!--        =Import Scripts-->
+</body>
+</html>
